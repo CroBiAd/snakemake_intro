@@ -1,0 +1,13 @@
+{
+    "__default__" :
+    {
+        "job-name"      : "{rule}",
+        "output"        : "logs/{rule}/{rule}.{wildcards}.out",
+        "account"       : "my_account",
+        "ntasks"        : 1,
+        "cpus-per-task" : 2,
+        "partition"     : "unlimited",
+        "mem"           : "10G",
+        "time"          : "00-00:15:00"
+    }
+}

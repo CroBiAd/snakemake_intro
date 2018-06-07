@@ -1,0 +1,9 @@
+cluster:                      "profiles/slurm/snakefile_sbatch.sh -J {cluster.job-name} -t {cluster.time} -p {cluster.partition} -A {cluster.account} -n {cluster.ntasks} -c {cluster.cpus-per-task} -m {cluster.mem} -o {cluster.output} -d '{dependencies}'"
+cluster-status:               "profiles/slurm/slurm_status.sh"
+jobscript:                    "profiles/slurm/jobscript.sh"
+cluster-config:               "profiles/slurm/rule_resources.json"
+restart-times:                3
+max-jobs-per-second:          5
+max-status-checks-per-second: 10
+local-cores:                  1
+jobs:                         10

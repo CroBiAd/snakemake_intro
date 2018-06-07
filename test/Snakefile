@@ -1,0 +1,47 @@
+rule a:
+	output:
+		"out/a.out"
+	shell:
+		"""
+		echo "this is rule name {rule}" > {output}
+		"""
+
+rule b:
+	output:
+		"out/b.out"
+	shell:
+		"""
+		echo "this is rule name {rule}" > {output}
+		"""
+
+rule combine_ab:
+	input:
+		a="out/a.out",
+		b="out/b.out"
+	output:
+		"out/ab.out"
+	shell:
+		"""
+		cat {input.a} {input.b} > {output}
+		"""
+
+rule c:
+	output:
+		"out/c.out"
+	shell:
+		"""
+		echo "this is rule name {rule}" > {output}
+		sleep 30
+		"""
+
+rule combine_abc:
+	input:
+		ab="out/ab.out",
+		c="out/c.out"
+	output:
+		"out/abc.out"
+	shell:
+		"""
+		cat {input.ab} {input.c} > {output}
+		"""
+
